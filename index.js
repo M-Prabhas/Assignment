@@ -47,28 +47,27 @@ dropper.addEventListener('dragleave',(e)=>{
 
 // the message for dropper being filled.
 dropper.addEventListener('drop', (event) => {
-    // Handling the dropped data
-    event.preventDefault();
-    msg.innerHTML="the Item has been dropped.";
-    msg.className='show';
-         // Get the dragged data (in this case, the image source)
+  event.preventDefault();
+//for appending are dropping the element into the dropper section
   const imageData = event.dataTransfer.getData('text/plain');
 
-  // Create a new image element
   const newImageElement = document.createElement('img');
   newImageElement.src = imageData;
-  newImageElement.className ='drag'
+  newImageElement.className = 'drag';
 
-  // Append the new image element to the dropper element
   dropper.appendChild(newImageElement);
-    setTimeout(()=>{  
-      msg.className='message';
-      msg.innerHTML='';
-    },2000);
-  });
+//for essage section
+  msg.innerHTML = "The item has been dropped.";
+  msg.className = 'show';
 
+  setTimeout(() => {  
+    msg.className = 'message';
+    msg.innerHTML = '';
+  }, 2000);
+});
 // Reset the containers to their initial state when the reset button is clicked
 buton.addEventListener('click', () => {
+  location.reload();
   container1.innerHTML = initialHTML1;
   dropper.innerHTML = initialHTML2;
 })
