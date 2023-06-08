@@ -57,9 +57,10 @@ dropper.addEventListener('drop', (event) => {
   // Create a new image element
   const newImageElement = document.createElement('img');
   newImageElement.src = imageData;
+  newImageElement.className ='drag'
 
   // Append the new image element to the dropper element
-  dropperElement.appendChild(newImageElement);
+  dropper.appendChild(newImageElement);
     setTimeout(()=>{  
       msg.className='message';
       msg.innerHTML='';
